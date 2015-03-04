@@ -1,4 +1,4 @@
-// ConsoleApplication7.cpp : Defines the entry point for the console application.
+// BankM.cpp : Defines the entry point for the console application.
 //
 
 #include "stdafx.h"
@@ -204,7 +204,8 @@ void Menu()
 		printf("1.- Ordenar cuentas por Saldo\n");
 		printf("2.- Ordenar por Numeros de cuentas\n");
 		printf("3.- Buscar un Numero de cuenta\n");
-		printf("4.- Salir\n");
+		printf("4.- Ordenar por Cedula\n");
+		printf("5.- Salir\n");
 		scanf_s("%d", &opc);
 		switch (opc){
 		case 1: OrdenarPorSaldo();
@@ -213,7 +214,9 @@ void Menu()
 			break;
 		case 3: BuscarCuenta();
 			break;
-		case 4: exit(0);
+		case 4: OrdenarPorCedula();
+			break;
+		case 5: exit(0);
 			break;
 		default: printf("Opcion no valida ");
 			break;
