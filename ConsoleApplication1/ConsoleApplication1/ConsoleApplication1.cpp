@@ -7,9 +7,9 @@
 struct BankM
 
 {
-	int Ncuenta;
+	int Ncuenta, Cedula;
 	float Saldo;
-}CB[10];
+}CB[5];
 
 float RM, DM;
 int i, j, RD, AN, opc;
@@ -19,6 +19,7 @@ void ingresarD();
 void Cabecera();
 void OrdenarPorSaldo();
 void OrdenarPorCuenta();
+void OrdenarPorCedula();
 void BuscarCuenta();
 void Menu();
 
@@ -57,11 +58,13 @@ void Deposito()
 }
 void ingresarD()
 {
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 5; i++)
 	{
 		printf("Ingrese Numero de Cuenta: ");
 		scanf_s("%d", &CB[i].Ncuenta);
 		printf("Ingrese el Saldo: ");
+		scanf_s("%f", &CB[i].Saldo);
+		printf("Ingrese la Cedula: ");
 		scanf_s("%f", &CB[i].Saldo);
 		break;
 	}
@@ -79,7 +82,7 @@ void BuscarCuenta()
 	system("cls");
 	printf("Ingrese Numero de Cuenta:\n");
 	scanf_s("%d", &AN);
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 5; i++)
 	{
 		if (CB[i].Ncuenta == AN)
 		{
@@ -117,9 +120,9 @@ void OrdenarPorCuenta()
 	Cabecera();
 	struct BankM R;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 5; i++)
 	{
-		for (j = i + 1; j < 10; j++)
+		for (j = i + 1; j < 5; j++)
 		{
 			if (CB[i].Ncuenta>CB[j].Ncuenta)
 			{
@@ -131,7 +134,7 @@ void OrdenarPorCuenta()
 		}
 	}
 	system("cls");
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 5; i++)
 	{
 		printf("Numero de Cuenta: %d\n", CB[i].Ncuenta);
 		printf("Saldo: %.2f\n", CB[i].Saldo);
@@ -144,9 +147,9 @@ void OrdenarPorSaldo()
 	Cabecera();
 	struct BankM R;
 
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 5; i++)
 	{
-		for (j = i + 1; j < 10; j++)
+		for (j = i + 1; j < 5; j++)
 		{
 			if (CB[i].Saldo>CB[j].Saldo)
 			{
@@ -158,7 +161,34 @@ void OrdenarPorSaldo()
 		}
 	}
 	system("cls");
-	for (i = 0; i < 10; i++)
+	for (i = 0; i < 5; i++)
+	{
+		printf("Numero de Cuenta: %d\n", CB[i].Ncuenta);
+		printf("Saldo: %.2f\n", CB[i].Saldo);
+		printf("\n");
+	}
+	system("pause");
+}
+void OrdenarPorCedula()
+{
+	Cabecera();
+	struct BankM R;
+
+	for (i = 0; i < 5; i++)
+	{
+		for (j = i + 1; j < 5; j++)
+		{
+			if (CB[i].Cedula>CB[j].Cedula)
+			{
+				R = CB[i];
+				CB[i] = CB[j];
+				CB[j] = R;
+			}
+
+		}
+	}
+	system("cls");
+	for (i = 0; i < 5; i++)
 	{
 		printf("Numero de Cuenta: %d\n", CB[i].Ncuenta);
 		printf("Saldo: %.2f\n", CB[i].Saldo);
